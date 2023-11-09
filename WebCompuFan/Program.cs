@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MVCBasico.Context;
+
 namespace WebCompuFan
 {
     public class Program
@@ -5,6 +8,9 @@ namespace WebCompuFan
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<CompuFanDatabaseContext>(options => options.UseSqlServer(builder.Configuration["ConnectionString:CompuFanDBConnection"]));
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

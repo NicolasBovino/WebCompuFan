@@ -1,6 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace MVCBasico.Models
 {
     public class Cliente
@@ -9,6 +8,8 @@ namespace MVCBasico.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Dni { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
 
