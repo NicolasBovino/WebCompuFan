@@ -11,8 +11,7 @@ namespace MVCBasico.Context
         }
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Articulo> Articulo { get; set; }
-
-
+        public DbSet<OrdenDeCompra> OrdenDeCompra { get; set; }
     }
 }
 

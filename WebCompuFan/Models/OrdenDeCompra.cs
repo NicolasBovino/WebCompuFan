@@ -10,8 +10,6 @@ namespace WebCompuFan.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string Nombre { get; set; }
-
         // Relación con Articulo
         public int ArticuloId { get; set; }
         public Articulo Articulo { get; set; }
@@ -19,9 +17,6 @@ namespace WebCompuFan.Models
         // Relación con Cliente
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
-
-
-
-
+        public int Cantidad { get; set; }
     }
 }

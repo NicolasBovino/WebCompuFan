@@ -149,7 +149,7 @@ namespace WebCompuFan.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        
         private bool ArticuloExists(int id)
         {
             return (_context.Articulo?.Any(e => e.Id == id)).GetValueOrDefault();
