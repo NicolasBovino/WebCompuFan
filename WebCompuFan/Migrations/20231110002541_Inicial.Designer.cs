@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebCompuFan.Migrations
 {
     [DbContext(typeof(CompuFanDatabaseContext))]
-    [Migration("20231109230537_AgregarOrdenDeCompra")]
-    partial class AgregarOrdenDeCompra
+    [Migration("20231110002541_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCBasico.Context;
@@ -49,8 +45,8 @@ namespace WebCompuFan.Controllers
         // GET: OrdenDeCompra/Create
         public IActionResult Create()
         {
-            ViewData["ArticuloId"] = new SelectList(_context.Articulo, "Id", "Id");
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Id");
+            ViewData["ArticuloId"] = new SelectList(_context.Articulo, "Id", "Modelo");
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Nombre");
             return View();
         }
 
@@ -67,8 +63,8 @@ namespace WebCompuFan.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArticuloId"] = new SelectList(_context.Articulo, "Id", "Id", ordenDeCompra.ArticuloId);
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Id", ordenDeCompra.ClienteId);
+            ViewData["ArticuloId"] = new SelectList(_context.Articulo, "Id", "Modelo", ordenDeCompra.ArticuloId);
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Nombre", ordenDeCompra.ClienteId);
             return View(ordenDeCompra);
         }
 
@@ -161,14 +157,14 @@ namespace WebCompuFan.Controllers
             {
                 _context.OrdenDeCompra.Remove(ordenDeCompra);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrdenDeCompraExists(int id)
         {
-          return (_context.OrdenDeCompra?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.OrdenDeCompra?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
