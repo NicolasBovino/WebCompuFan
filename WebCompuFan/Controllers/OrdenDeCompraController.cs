@@ -81,8 +81,8 @@ namespace WebCompuFan.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArticuloId"] = new SelectList(_context.Articulo, "Id", "Id", ordenDeCompra.ArticuloId);
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Id", ordenDeCompra.ClienteId);
+            ViewData["ArticuloId"] = new SelectList(_context.Articulo, "Id", "Modelo", ordenDeCompra.ArticuloId);
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Nombre", ordenDeCompra.ClienteId);
             return View(ordenDeCompra);
         }
 
@@ -98,7 +98,7 @@ namespace WebCompuFan.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) // Solucionado, solo habia que negarlo
             {
                 try
                 {
@@ -118,8 +118,8 @@ namespace WebCompuFan.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArticuloId"] = new SelectList(_context.Articulo, "Id", "Id", ordenDeCompra.ArticuloId);
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Id", ordenDeCompra.ClienteId);
+            ViewData["ArticuloId"] = new SelectList(_context.Articulo, "Id", "Modelo", ordenDeCompra.ArticuloId);
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Nombre", ordenDeCompra.ClienteId);
             return View(ordenDeCompra);
         }
 
