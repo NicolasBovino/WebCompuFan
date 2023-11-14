@@ -57,7 +57,7 @@ namespace WebCompuFan.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ArticuloId,ClienteId,Cantidad")] OrdenDeCompra ordenDeCompra)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) // Solucionado, solo habia que negarlo
             {
                 _context.Add(ordenDeCompra);
                 await _context.SaveChangesAsync();
